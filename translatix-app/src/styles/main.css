@@ -15,33 +15,38 @@
   overflow: hidden;
 }
 
-.card:hover {
+/* * HIỆU ỨNG KHI DI CHUỘT (HOVER)
+ * Đây là phần được sửa để thêm hiệu ứng phát sáng.
+*/
+/* .card:hover {
   transform: translateY(-10px) scale(1.02);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-}
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15),
+    0 0 30px -5px var(--card-glow-border);
+} */
 
-.card::before {
+/* * VIỀN MÀU CHUYỂN ĐỘNG
+ * Sử dụng pseudo-element ::before để tạo dải màu.
+*/
+/* .card::before {
   content: "";
   position: absolute;
-  top: -2px;
-  left: -2px;
-  right: -2px;
-  bottom: -2px;
   inset: 0;
   border-radius: 1.25rem;
   border: 2px solid transparent;
+
   background: conic-gradient(
       from var(--angle),
       transparent 0%,
-      var(--card-glow-border) 20%,
-      transparent 35%
+      var(--card-glow-border) 30%,
+      transparent 45%
     )
     border-box;
+
   -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
-  mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
   mask-composite: exclude;
-  animation: spin 5s linear infinite paused;
+  -webkit-mask-composite: xor;
+
+  animation: spin 3s linear infinite paused;
   opacity: 0;
   transition: opacity 0.4s ease;
 }
@@ -61,8 +66,9 @@
   to {
     --angle: 360deg;
   }
-}
+} */
 
+/* Hiệu ứng cho icon bên trong card */
 .card-icon {
   transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
@@ -101,4 +107,38 @@
 
 #theme-toggle.toggled #theme-toggle-icon {
   transform: rotate(180deg) scale(0.8);
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--modal-overlay-bg);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.modal-content {
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 1.25rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  width: 90%;
+  max-width: 500px;
+  max-height: 90vh;
+  overflow-y: auto;
+  transform: translateY(20px);
+  opacity: 0;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.modal-overlay.active .modal-content {
+  transform: translateY(0);
+  opacity: 1;
 }

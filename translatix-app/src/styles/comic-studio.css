@@ -1,0 +1,49 @@
+:root[data-theme="dark"] .comic-studio-container {
+  --bg-main: #0f172a;
+  --bg-panel: #1e293b;
+  --bg-header: #111827;
+  --text-primary: #e2e8f0;
+  --text-secondary: #94a3b8;
+  --border-color: #334155;
+  --hover-bg: #334155;
+  --active-bg: #3b82f6;
+  --btn-bg: #3b82f6;
+  --btn-secondary-bg: #4b5563;
+}
+:root[data-theme="light"] .comic-studio-container {
+  --bg-main: #f1f5f9;
+  --bg-panel: #ffffff;
+  --bg-header: #f9fafb;
+  --text-primary: #1e293b;
+  --text-secondary: #64748b;
+  --border-color: #e2e8f0;
+  --hover-bg: #f1f5f9;
+  --active-bg: #3b82f6;
+  --btn-bg: #3b82f6;
+  --btn-secondary-bg: #e5e7eb;
+}
+.comic-studio-container {
+  background-color: var(--bg-main);
+  color: var(--text-primary);
+}
+.comic-studio-container ::-webkit-scrollbar {
+  width: 8px;
+}
+.comic-studio-container ::-webkit-scrollbar-track {
+  background: var(--bg-panel);
+}
+.comic-studio-container ::-webkit-scrollbar-thumb {
+  background: #4b5563;
+  border-radius: 4px;
+}
+.comic-studio-container ::-webkit-scrollbar-thumb:hover {
+  background: #6b7280;
+}
+.comic-studio-container input,
+.comic-studio-container select,
+.comic-studio-container textarea {
+  background-color: var(--bg-main);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  border-radius: 0.375rem;
+}
