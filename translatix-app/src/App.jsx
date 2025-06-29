@@ -35,21 +35,25 @@ const App = () => {
 
       <ThemeToggle />
 
-      <main className="w-full max-w-7xl mx-auto px-4 text-center">
-        <h1
-          className="text-4xl md:text-6xl font-black mb-4 fadeInUpScale"
-          style={{ animationDelay: "0.1s", textWrap: "balance" }}>
-          Chọn Nền Tảng Dịch Thuật
-        </h1>
+      {/* Sửa đổi: Xóa 'text-center' khỏi thẻ main */}
+      <main className="w-full max-w-7xl mx-auto px-4">
+        {/* Sửa đổi: Thêm một div bao bọc với 'text-center' cho nội dung văn bản */}
+        <div className="text-center">
+          <h1
+            className="text-4xl md:text-6xl font-black mb-4 fadeInUpScale"
+            style={{ animationDelay: "0.1s", textWrap: "balance" }}>
+            Chọn Nền Tảng Dịch Thuật
+          </h1>
 
-        <p
-          className="text-lg max-w-3xl mx-auto mb-16 fadeInUpScale text-secondary"
-          style={{ animationDelay: "0.2s", textWrap: "balance" }}>
-          Giải pháp bản địa hóa chuyên nghiệp, trực quan và mạnh mẽ cho các dự
-          án game và truyện tranh của bạn.
-        </p>
+          <p
+            className="text-lg max-w-3xl mx-auto mb-16 fadeInUpScale text-secondary"
+            style={{ animationDelay: "0.2s", textWrap: "balance" }}>
+            Giải pháp bản địa hóa chuyên nghiệp, trực quan và mạnh mẽ cho các dự
+            án game và truyện tranh của bạn.
+          </p>
+        </div>
 
-        {/* Sửa ở đây: Thêm lớp grid */}
+        {/* Layout grid sẽ không còn bị ảnh hưởng bởi các thuộc tính text-align */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <Card
             icon="🎮"

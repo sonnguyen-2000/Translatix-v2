@@ -1,3 +1,4 @@
+@import "tailwindcss";
 /* CSS Variables cho Theme */
 :root[data-theme="light"] {
   --bg-main: #f1f5f9;
