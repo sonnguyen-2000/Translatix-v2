@@ -1,0 +1,157 @@
+.rpg-editor-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #0f172a;
+  color: white;
+  font-family: sans-serif;
+}
+
+.rpg-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: #1e293b;
+}
+
+.rpg-exit-button {
+  background-color: #ef4444;
+  color: white;
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+  border-radius: 0.375rem;
+}
+
+.rpg-body {
+  display: grid;
+  grid-template-columns: 1fr 2.5fr 1.5fr;
+  gap: 1rem;
+  flex-grow: 1;
+  padding: 1rem;
+  overflow: auto;
+}
+
+.rpg-sidebar {
+  background-color: #1e293b;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.rpg-search {
+  padding: 0.5rem;
+  border-radius: 0.375rem;
+  background-color: #334155;
+  color: white;
+  border: none;
+}
+
+.rpg-file {
+  color: #facc15;
+  font-weight: bold;
+}
+
+.rpg-scene-btn {
+  background-color: #334155;
+  color: white;
+  padding: 0.5rem;
+  border-radius: 0.375rem;
+}
+
+.rpg-main {
+  background-color: #1e293b;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.rpg-scene-title {
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #facc15;
+}
+
+.rpg-face-info small {
+  color: #cbd5e1;
+}
+
+.rpg-dialog label {
+  display: block;
+  font-weight: 600;
+  margin-top: 1rem;
+}
+
+.rpg-translate-box {
+  background-color: #334155;
+  color: white;
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 0.375rem;
+  border: none;
+  resize: vertical;
+  margin-top: 0.25rem;
+}
+
+.rpg-autotrans-btn {
+  background-color: #3b82f6;
+  color: white;
+  padding: 0.3rem 0.75rem;
+  border-radius: 0.375rem;
+  margin-top: 0.5rem;
+}
+
+.rpg-command {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: #93c5fd;
+}
+
+.rpg-next-btn {
+  background-color: #22c55e;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  margin-top: 1rem;
+  font-weight: bold;
+}
+
+.rpg-preview {
+  background-color: #1e293b;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.rpg-tab {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.rpg-tab-btn {
+  padding: 0.3rem 0.75rem;
+  background-color: #334155;
+  border-radius: 0.375rem;
+  color: white;
+}
+
+.rpg-tab-btn.active {
+  background-color: #3b82f6;
+}
+
+.rpg-preview-card {
+  background-color: #0f172a;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  text-align: center;
+}
+
+.rpg-preview-name {
+  font-weight: bold;
+  color: #facc15;
+}

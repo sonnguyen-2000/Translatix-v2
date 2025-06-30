@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import ThemeToggle from "./components/ui/ThemeToggle";
 import Card from "./components/ui/Card";
 import useStarfield from "./hooks/useStarfield";
 import Modal from "./components/ui/Modal";
 import ComicStudio from "./components/comic-studio/ComicStudio";
+import RPGEditor from "./components/rpg/RPGEditor";
 import "./styles/theme.css";
 
 const App = () => {
@@ -11,9 +12,8 @@ const App = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedPlatform, setSelectedPlatform] = useState(null);
   const [activeProject, setActiveProject] = useState(null);
+  const [rpgFile, setRpgFile] = useState(null);
 
-  // SỬA LỖI: Hàm này giờ sẽ mở modal cho BẤT KỲ nền tảng nào.
-  // Logic "if (platform === 'comic')" đã được loại bỏ.
   const openModal = (platform) => {
     setSelectedPlatform(platform);
     setIsModalOpen(true);
@@ -23,35 +23,72 @@ const App = () => {
     setIsModalOpen(false);
   };
 
-  // Hàm xử lý khi một file được chọn từ modal
   const handleFileSelect = (file) => {
     console.log(`File selected for platform ${selectedPlatform}:`, file);
-    // Đóng modal
     closeModal();
 
-    // Nếu nền tảng là 'comic', hiển thị ComicStudio
-    if (selectedPlatform === "comic") {
-      // Dùng timeout nhỏ để animation đóng modal mượt hơn
-      setTimeout(() => {
+    setTimeout(() => {
+      if (selectedPlatform === "rpg") {
+        setRpgFile(fakeRpgProject);
+        // setRpgFile(file);
+        setActiveProject("rpg");
+      } else if (selectedPlatform === "comic") {
         setActiveProject("comic");
-      }, 300);
-    }
-    // Bạn có thể thêm logic cho các nền tảng khác ở đây, ví dụ:
-    // else {
-    //   alert(`Đã chọn file ${file.name} cho nền tảng ${selectedPlatform}`);
-    // }
+      } else {
+        alert(`Đã chọn file cho ${selectedPlatform} nhưng chưa hỗ trợ`);
+      }
+    }, 300);
   };
 
   const exitStudio = () => {
     setActiveProject(null);
+    setRpgFile(null);
   };
 
-  // Logic render: Nếu có dự án đang hoạt động, hiển thị studio
+  // --- Render Studio View ---
   if (activeProject === "comic") {
     return <ComicStudio onExit={exitStudio} />;
   }
 
-  // Nếu không, hiển thị giao diện chọn nền tảng
+  if (activeProject === "rpg") {
+    return <RPGEditor onExit={exitStudio} selectedFile={rpgFile} />;
+  }
+
+  const fakeRpgProject = {
+    name: "Demo RPG",
+    files: [
+      {
+        type: "map",
+        name: "Map001.json",
+        events: [
+          {
+            id: "EV001",
+            name: "Trưởng làng Elara",
+            script: [
+              {
+                code: 101,
+                face: {
+                  name: "Elara",
+                  index: 0,
+                  img: "https://via.placeholder.com/48x48/475569/e2e8f0.png?text=Elara",
+                },
+              },
+              {
+                code: 401,
+                text: "Chào mừng đến với Translatix!",
+              },
+              {
+                code: 108,
+                comment: "Hiển thị lựa chọn cho người chơi",
+              },
+            ],
+          },
+        ],
+      },
+    ],
+  };
+
+  // --- Render Homepage View ---
   return (
     <>
       <canvas
@@ -114,6 +151,7 @@ const App = () => {
           </div>
         </main>
       </div>
+
       <Modal
         isOpen={isModalOpen}
         onClose={closeModal}
